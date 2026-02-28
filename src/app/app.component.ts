@@ -10,4 +10,8 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'ioc-angular-ClauSegura-NuriaEliesSanchez';
+  
+  constructor(){
+	console.log('App ClauSegura confirmació d’arrancada correcta')
+  }
 }
