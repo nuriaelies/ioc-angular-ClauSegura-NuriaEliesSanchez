@@ -17,21 +17,23 @@
   </tr>
 </table>
 
-<p>Exercici 2 y 3 EAC2</p>
+<p>Exercici 2 i 3 EAC2</p>
 
 <barra-cerca (textCerca)="onTextCerca($event)"></barra-cerca>
 <llista-elements [items]="elementsFiltrats"></llista-elements>
 
-<p>Exercici 4 EAC2</p>
+<p>Exercici 4 i 5 EAC2</p>
 
 <form #f="ngForm" (ngSubmit)="filtrarAmbFormulari()">
-
+  <label for="textCercaForm">Text de cerca</label>
   <input type="text"
+         id="textCercaForm"
          name="textCercaForm"
          [(ngModel)]="textCercaForm"
          minlength="3"
          required
          #camp="ngModel"
+		 aria-label="Escriu quina contrasenya necesites cerca"
          placeholder="Escriu mínim 3 caràcters">
 
   <p *ngIf="camp.invalid && camp.touched" style="color:red;">
@@ -43,5 +45,8 @@
   </button>
 
 </form>
+<div class="llista-container">
+  <llista-elements [items]="elementsFiltrats"></llista-elements>
+</div>
 
-<llista-elements [items]="elementsFiltrats"></llista-elements>
+

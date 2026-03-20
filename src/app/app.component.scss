@@ -19,3 +19,42 @@ input.ng-invalid.ng-touched {
 input.ng-valid.ng-touched {
   box-shadow: 0 0 5px green;
 }
+.llista-container {
+  display: grid;
+  gap: 1.5rem;
+  padding: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.llista-container llista-elements {
+  background: #1a1a1a;
+  border: 2px solid purple;
+  border-radius: 10px;
+  padding: 1rem;
+  color: pink;
+  box-shadow: 0 0 10px rgba(255, 0, 255, 0.4);
+}
+
+@media (min-width: 600px) {
+  .llista-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .llista-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+input:focus,
+button:focus {
+  outline: 3px solid #ff66ff;
+  box-shadow: 0 0 10px #ff66ff;
+}
+input.ng-invalid.ng-touched {
+  box-shadow: 0 0 5px red;
+}
+
+input.ng-valid.ng-touched {
+  box-shadow: 0 0 5px green;
+}
