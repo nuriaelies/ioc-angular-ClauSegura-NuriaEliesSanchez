@@ -1,2 +1,18 @@
 <h1>ClauSegura</h1>
 <p>Núria Elies Sánchez</p>
+
+<table border="1" style="margin: 20px auto; width: 80%; text-align: left;">
+  <tr>
+    <th>ID</th>
+    <th>Nom</th>
+    <th>Valor</th>
+    <th>Notes</th>
+  </tr>
+
+  <tr *ngFor="let item of elements">
+    <td>{{ item.id }}</td>
+    <td>{{ item.name }}</td>
+    <td>{{ item.value }}</td>
+    <td>{{ item.notes }}</td>
+  </tr>
+</table>
