@@ -20,5 +20,28 @@
 <p>Exercici 2 y 3 EAC2</p>
 
 <barra-cerca (textCerca)="onTextCerca($event)"></barra-cerca>
+<llista-elements [items]="elementsFiltrats"></llista-elements>
+
+<p>Exercici 4 EAC2</p>
+
+<form #f="ngForm" (ngSubmit)="filtrarAmbFormulari()">
+
+  <input type="text"
+         name="textCercaForm"
+         [(ngModel)]="textCercaForm"
+         minlength="3"
+         required
+         #camp="ngModel"
+         placeholder="Escriu mínim 3 caràcters">
+
+  <p *ngIf="camp.invalid && camp.touched" style="color:red;">
+És requeriex mínim 3 caracters
+</p>
+
+  <button type="submit" [disabled]="f.invalid">
+    Cercar
+  </button>
+
+</form>
 
 <llista-elements [items]="elementsFiltrats"></llista-elements>

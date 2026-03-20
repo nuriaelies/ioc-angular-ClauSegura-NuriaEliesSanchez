@@ -12,3 +12,10 @@ p{
 	text-align:center;
 	margin:3px;
 }
+input.ng-invalid.ng-touched {
+  box-shadow: 0 0 5px red;
+}
+
+input.ng-valid.ng-touched {
+  box-shadow: 0 0 5px green;
+}

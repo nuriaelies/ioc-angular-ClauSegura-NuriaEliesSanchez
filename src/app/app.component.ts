@@ -4,11 +4,12 @@ import { DADES_MOCK } from './mocks/dades-mock';
 import { CommonModule } from '@angular/common';
 import { BarraCercaComponent } from './barra-cerca/barra-cerca.component';
 import { LlistaElementsComponent } from './llista-elements/llista-elements.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule,BarraCercaComponent,LlistaElementsComponent],
+  imports: [RouterOutlet, CommonModule,BarraCercaComponent,LlistaElementsComponent, FormsModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -20,6 +21,11 @@ export class AppComponent {
   
  onTextCerca(text: string) {
     this.filtre = text.toLowerCase();
+  }
+  textCercaForm: string = '';
+
+  filtrarAmbFormulari() {
+    this.filtre = this.textCercaForm.toLowerCase();
   }
 
   get elementsFiltrats() {
