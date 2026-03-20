@@ -1,3 +1,10 @@
-<div *ngFor="let item of items">
-  <targeta-element [element]="item"></targeta-element>
+<div *ngIf="items.length > 0; else senseResultats">
+  <div *ngFor="let element of items; trackBy: trackById">
+    <targeta-element [element]="element"></targeta-element>
+  </div>
 </div>
+
+<ng-template #senseResultats>
+  <p style="color: purple; font-weight: bold; margin-top: 15px;">
+  </p>
+</ng-template>

@@ -11,4 +11,8 @@ import { TargetaElementComponent } from '../targeta-element/targeta-element.comp
 })
 export class LlistaElementsComponent {
   @Input() items: any[] = [];
+
+  trackById(index: number, item: any) {
+    return item.id;
+  }
 }
