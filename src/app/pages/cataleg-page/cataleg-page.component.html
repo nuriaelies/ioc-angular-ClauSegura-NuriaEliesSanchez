@@ -1,0 +1,41 @@
+<div class="cataleg">
+<app-formulari-cerca></app-formulari-cerca>
+<app-preferits-panel></app-preferits-panel>
+  
+  <div class="preferits-info">
+    <p>Preferits: {{ totalPreferits() }}</p>
+
+    <div class="llista-preferits">
+      <div class="mini-targeta" *ngFor="let p of preferits()">
+        {{ p.nom }}
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="carregant(); else noCarregant">
+    <div class="spinner">
+      Carregant...
+    </div>
+  </div>
+
+  <ng-template #noCarregant>
+    <div *ngIf="error(); else exit">
+      <p class="missatge-error">{{ error() }}</p>
+      <button (click)="reintentar()">Reintentar</button>
+    </div>
+
+    <ng-template #exit>
+      <div class="graella">
+        <div class="targeta" *ngFor="let element of elements()">
+          <h3>{{ element.nom }}</h3>
+          <p>Popular: {{ element.esPopular ? 'Sí' : 'No' }}</p>
+		  <button (click)="canviarPreferit(element)"
+                  [class.preferit]="esPreferit(element.id)">
+            {{ esPreferit(element.id) ? '★ Preferit' : '☆ Afegir' }}
+          </button>
+		</div>
+      </div>
+    </ng-template>
+  </ng-template>
+
+</div>

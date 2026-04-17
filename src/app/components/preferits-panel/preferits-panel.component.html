@@ -1,0 +1,23 @@
+<h2>Panell de preferits</h2>
+
+<div *ngFor="let p of preferits; let i = index" class="bloc-preferit">
+  <h3>{{ p.nom }}</h3>
+
+  <div [formGroup]="notesPerElement.at(i)">
+    <div formArrayName="notes">
+
+      <div *ngFor="let nota of getNotesControls(i); let j = index">
+        <input [formControlName]="j" placeholder="Escriu una nota">
+
+        <button type="button" (click)="eliminarNota(i, j)">x</button>
+
+        <div class="error" *ngIf="nota.invalid && nota.touched">
+          La nota ha de tenir mínim 3 caràcters.
+        </div>
+      </div>
+
+    </div>
+
+    <button type="button" (click)="afegirNota(i)">+</button>
+  </div>
+</div>

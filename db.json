@@ -1,0 +1,29 @@
+{
+  "comentaris": {
+    "posts": [
+      {
+        "id": 1,
+        "title": "json-server",
+        "author": "typicode"
+      }
+    ],
+    "comments": [
+      {
+        "id": 1,
+        "body": "some comment",
+        "postId": 1
+      }
+    ],
+    "profile": {
+      "name": "typicode"
+    }
+  },
+
+  "elements": [
+    { "id": 1, "nom": "Poma", "popular": true },
+    { "id": 2, "nom": "Plàtan", "popular": true },
+    { "id": 3, "nom": "Pastanaga", "popular": false },
+    { "id": 4, "nom": "Tomàquet", "popular": true },
+    { "id": 5, "nom": "Enciam", "popular": false }
+  ]
+}

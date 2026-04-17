@@ -1,0 +1,27 @@
+<form [formGroup]="formulari" class="formulari">
+
+  <input type="text" formControlName="termeCerca" placeholder="Cerca..." />
+
+  <button type="button" *ngIf="formulari.get('termeCerca')!.value" (click)="netejar()">
+    Netejar
+  </button>
+
+  <p *ngIf="formulari.get('termeCerca')!.pending">Validant...</p>
+
+  <div *ngIf="formulari.get('termeCerca')!.touched">
+
+    <p *ngIf="formulari.get('termeCerca')!.hasError('minlength')">
+      El terme ha de tenir com a mínim 2 caràcters.
+    </p>
+
+    <p *ngIf="formulari.get('termeCerca')!.hasError('maxlength')">
+      El terme no pot superar els 50 caràcters.
+    </p>
+
+    <p *ngIf="formulari.get('termeCerca')!.hasError('sensResultats')">
+      No s’han trobat resultats.
+    </p>
+
+  </div>
+
+</form>
