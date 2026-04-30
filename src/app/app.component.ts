@@ -5,11 +5,12 @@ import { CommonModule } from '@angular/common';
 import { BarraCercaComponent } from './barra-cerca/barra-cerca.component';
 import { LlistaElementsComponent } from './llista-elements/llista-elements.component';
 import { FormsModule } from '@angular/forms';
+import { NavComponent } from './components/nav/nav.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule,BarraCercaComponent,LlistaElementsComponent, FormsModule],
+  imports: [RouterOutlet, CommonModule,BarraCercaComponent,LlistaElementsComponent, FormsModule, NavComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

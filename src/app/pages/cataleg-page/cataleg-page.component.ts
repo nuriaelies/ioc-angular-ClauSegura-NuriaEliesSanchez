@@ -5,13 +5,20 @@ import { FormulariCercaComponent } from '../../components/formulari-cerca/formul
 import { PreferitsService } from '../../services/preferits.service';
 import { ElementCataleg } from '../../models/element.model';
 import { PreferitsPanelComponent } from '../../components/preferits-panel/preferits-panel.component';
+import { signal } from '@angular/core';
+import { DADES_MOCK } from '../../mocks/dades-mock';
+import { ScrollingModule } from '@angular/cdk/scrolling';
+
+
 
 
 @Component({
   selector: 'app-cataleg-page',
   standalone: true,
-  imports: [NgIf, NgFor, FormulariCercaComponent, PreferitsPanelComponent],
+  imports: [NgIf, NgFor, FormulariCercaComponent, PreferitsPanelComponent, ScrollingModule],
   templateUrl: './cataleg-page.component.html',
+  styleUrls: ['./cataleg-page.component.css']
+
 })
 export class CatalegPageComponent {
   private readonly elementServei = inject(ElementService);
@@ -23,9 +30,13 @@ export class CatalegPageComponent {
 
   preferits = this.preferitsServei.preferits;
   totalPreferits = this.preferitsServei.totalPreferits;
+  elementsMock = signal(DADES_MOCK);
+  errorMock = signal<string | null>(null);
+
   
   constructor() {
     this.elementServei.obtenirPopulars();
+	
   }
 
   reintentar(): void {

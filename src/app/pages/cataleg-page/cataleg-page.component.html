@@ -1,6 +1,6 @@
 <div class="cataleg">
-<app-formulari-cerca></app-formulari-cerca>
-<app-preferits-panel></app-preferits-panel>
+  <app-formulari-cerca></app-formulari-cerca>
+  <app-preferits-panel></app-preferits-panel>
   
   <div class="preferits-info">
     <p>Preferits: {{ totalPreferits() }}</p>
@@ -12,30 +12,29 @@
     </div>
   </div>
   
-  <div *ngIf="carregant(); else noCarregant">
+<div *ngIf="false; else noCarregant">
     <div class="spinner">
       Carregant...
     </div>
   </div>
 
   <ng-template #noCarregant>
-    <div *ngIf="error(); else exit">
-      <p class="missatge-error">{{ error() }}</p>
+    <div *ngIf="errorMock(); else exit">
+      <p class="missatge-error">{{ errorMock() }}</p>
       <button (click)="reintentar()">Reintentar</button>
     </div>
 
     <ng-template #exit>
-      <div class="graella">
-        <div class="targeta" *ngFor="let element of elements()">
-          <h3>{{ element.nom }}</h3>
-          <p>Popular: {{ element.esPopular ? 'Sí' : 'No' }}</p>
-		  <button (click)="canviarPreferit(element)"
-                  [class.preferit]="esPreferit(element.id)">
-            {{ esPreferit(element.id) ? '★ Preferit' : '☆ Afegir' }}
-          </button>
-		</div>
-      </div>
+      <cdk-virtual-scroll-viewport itemSize="120" style="height: 500px; display: block;">
+        <div *cdkVirtualFor="let element of elementsMock()">
+          <div class="targeta">
+            <h3>{{ element.name }}</h3>
+            <p>{{ element.notes }}</p>
+          </div>
+        </div>
+      </cdk-virtual-scroll-viewport>
     </ng-template>
+
   </ng-template>
 
 </div>

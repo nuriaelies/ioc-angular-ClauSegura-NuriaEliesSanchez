@@ -1,7 +1,9 @@
 <div *ngIf="items.length > 0; else senseResultats">
-  <div *ngFor="let element of items; trackBy: trackById">
-    <targeta-element [element]="element"></targeta-element>
-  </div>
+  <cdk-virtual-scroll-viewport [itemSize]="altadaElement" style="height: 500px;">
+    <div *cdkVirtualFor="let element of items; trackBy: trackById">
+      <targeta-element [element]="element"></targeta-element>
+    </div>
+  </cdk-virtual-scroll-viewport>
 </div>
 
 <ng-template #senseResultats>
